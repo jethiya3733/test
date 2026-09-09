@@ -9,4 +9,5 @@ coverage/
 __pycache__/
 .pytest_cache/
 .venv/
+.git-data/
 erl_crash.dump
