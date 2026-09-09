@@ -9,6 +9,11 @@ landing. Never mark an issue `Done` before its PR is merged. Human review occurs
 in `In Review`; requested changes move to `Rework`; approved work moves to
 `Merging`.
 
+Run repository Git commands through `./scripts/gitw`; it maintains writable
+shadow metadata because unattended Codex sandboxes protect `.git`. When using
+`gh`, pass the repository, branch, or PR explicitly instead of relying on the
+protected `.git` checkout state.
+
 Before handoff, run `./scripts/validate-harness.sh` plus the narrowest tests that
 cover the change. Add project-specific commands here when a stack is introduced.
 Prefer targeted file reads and searches; do not scan generated or dependency

@@ -5,6 +5,7 @@ required=(
   AGENTS.md
   .github/pull_request_template.md
   .github/workflows/harness.yml
+  scripts/gitw
   .codex/skills/linear/SKILL.md
   .codex/skills/pull/SKILL.md
   .codex/skills/commit/SKILL.md
@@ -22,5 +23,7 @@ for skill in linear pull commit push land; do
   grep -q "^name: $skill$" "$path"
   grep -q '^description: .\+' "$path"
 done
+
+bash -n scripts/gitw
 
 printf 'Symphony harness checks passed.\n'

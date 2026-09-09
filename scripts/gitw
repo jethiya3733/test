@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+source_git_dir="$(git rev-parse --absolute-git-dir)"
+shadow_git_dir="$repo_root/.codex-git"
+
+if [[ ! -d "$shadow_git_dir" ]]; then
+  cp -a "$source_git_dir" "$shadow_git_dir"
+fi
+
+exec git --git-dir="$shadow_git_dir" --work-tree="$repo_root" "$@"

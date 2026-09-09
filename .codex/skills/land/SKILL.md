@@ -7,8 +7,9 @@ description: Land an approved pull request in the Merging state and finish its L
 
 Only land work whose Linear issue is in `Merging`. Confirm the PR targets
 `main`, required reviews are approved, required checks pass, and the branch is
-current. Use the repository's configured merge policy; otherwise prefer squash
-merge with branch deletion via `gh pr merge --squash --delete-branch`.
+current. Use `./scripts/gitw` for Git commands and pass the explicit repository
+and PR to `gh`. Use the repository's configured merge policy; otherwise prefer
+squash merge with branch deletion.
 
 Never bypass protections or claim success before GitHub reports the PR merged.
 After merge, update the Linear workpad with the merge result and move the issue
