@@ -5,8 +5,10 @@ description: Read and update the assigned Linear issue, its workpad, and Symphon
 
 # Linear issue operations
 
-Use Linear's GraphQL API at `https://api.linear.app/graphql` with
-`LINEAR_API_KEY`. Never print, persist, or commit the token.
+Use Symphony's session-scoped `linear_graphql` client tool. It reuses the
+configured Linear authentication; do not build raw-token shell helpers. Send
+one narrowly scoped operation per call and treat a top-level `errors` array as
+failure.
 
 At the start, fetch the issue description, state, labels, and comments once.
 Maintain exactly one issue comment headed `## Codex Workpad`; update that
@@ -23,3 +25,7 @@ State rules:
 
 If access or an external dependency blocks progress, record the exact blocker
 and required action in the workpad. Do not fabricate state changes or results.
+
+Resolve exact state IDs from the issue team's states before `issueUpdate`.
+Create or edit the workpad with `commentCreate`/`commentUpdate`, and attach PRs
+with `attachmentLinkGitHubPR` rather than only pasting a URL.
