@@ -7,6 +7,10 @@ label and is moved to `Todo`.
 Lifecycle: `Backlog` → `Todo` → `In Progress` → `In Review` → `Merging` →
 `Done`. Review changes return to `Rework`.
 
+## Smoke test
+
+A Linear issue must have the `symphony` label and be in `Todo` to dispatch.
+
 Run the repository-level checks with:
 
 ```bash
